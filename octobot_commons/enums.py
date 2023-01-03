@@ -265,6 +265,7 @@ class DisplayedElementTypes(enum.Enum):
     INPUT = "input"
     TABLE = "table"
     VALUE = "value"
+    DICTIONARY = "dictionary"
 
 
 class DBTables(enum.Enum):
