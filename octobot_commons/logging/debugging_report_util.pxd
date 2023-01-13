@@ -15,32 +15,9 @@
 #  You should have received a copy of the GNU Lesser General Public
 #  License along with this library.
 
-from octobot_commons.logging cimport logging_util
-
-from octobot_commons.logging.logging_util cimport (
-    BotLogger,
-    set_global_logger_level,
-    get_global_logger_level,
-    get_logger,
-    set_logging_level,
-    get_backtesting_errors_count,
-    reset_backtesting_errors,
-    set_error_publication_enabled,
-)
-
-from octobot_commons.logging cimport debugging_report_util
-from octobot_commons.logging.debugging_report_util cimport (
-    DebuggingReporter
-)
-
-__all__ = [
-    "BotLogger",
-    "set_global_logger_level",
-    "get_global_logger_level",
-    "get_logger",
-    "set_logging_level",
-    "get_backtesting_errors_count",
-    "reset_backtesting_errors",
-    "set_error_publication_enabled",
-    "DebuggingReporter",
-]
+cdef class DebuggingReporter:
+    # cpdef void add_to_debugging_report(self, str key_to_set, str error_description, str additional_message, ? error, ? method)
+    cdef void _add_to_debugging_report(self, str key_to_set, str message)
+    cpdef void create_debugging_report(self)
+    cdef void _finalize_debugging_report(self, str report)
+    cpdef str debugging_report_main_template(self, str report)

@@ -36,6 +36,11 @@ from octobot_commons.logging.logging_util import (
     register_error_notifier,
 )
 
+from octobot_commons.logging import debugging_report_util
+from octobot_commons.logging.debugging_report_util import (
+    DebuggingReporter
+)
+
 __all__ = [
     "BotLogger",
     "set_global_logger_level",
@@ -55,4 +60,5 @@ __all__ = [
     "get_errors_count",
     "reset_errors_count",
     "register_error_notifier",
+    "DebuggingReporter",
 ]
