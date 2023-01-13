@@ -40,6 +40,11 @@ from octobot_commons.logging.logging_util import (
     set_enable_web_interface_logs,
 )
 
+from octobot_commons.logging import debugging_report_util
+from octobot_commons.logging.debugging_report_util import (
+    DebuggingReporter
+)
+
 __all__ = [
     "BotLogger",
     "set_global_logger_level",
@@ -63,4 +68,5 @@ __all__ = [
     "register_error_notifier",
     "register_log_callback",
     "set_enable_web_interface_logs",
+    "DebuggingReporter",
 ]
