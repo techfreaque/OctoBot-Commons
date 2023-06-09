@@ -413,8 +413,8 @@ class Element:
     def __init__(
         self,
         kind,
-        x,
-        y,
+        x=None,
+        y=None,
         open=None,
         high=None,
         low=None,
@@ -442,6 +442,9 @@ class Element:
         html=None,
         size=None,
         symbol=None,
+        values=None,
+        labels=None,
+        hole_size: float = None,
     ):
         self.kind = kind
         self.x = x
@@ -473,6 +476,9 @@ class Element:
         self.html = html
         self.size = size
         self.symbol = symbol
+        self.values = values
+        self.labels = labels
+        self.hole_size = hole_size
 
     def to_json(self):
         """
@@ -509,6 +515,9 @@ class Element:
             enums.PlotAttributes.HTML.value: self.html,
             enums.PlotAttributes.SIZE.value: self.size,
             enums.PlotAttributes.SYMBOL.value: self.symbol,
+            enums.PlotAttributes.VALUES.value: self.values,
+            enums.PlotAttributes.LABELS.value: self.labels,
+            enums.PlotAttributes.HOLE_SIZE.value: self.hole_size,
         }
 
     def is_empty(self):
