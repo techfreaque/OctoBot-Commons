@@ -64,6 +64,7 @@ class Profile:
         self.schema_path: str = schema_path or constants.PROFILE_FILE_SCHEMA
         self.name: str = None
         self.description: str = None
+        self.required_trading_tentacles: list = []
         self.avatar: str = None
         self.avatar_path: str = None
         self.origin_url: str = None
@@ -92,6 +93,7 @@ class Profile:
         self.profile_id = profile_config.get(constants.CONFIG_ID, str(uuid.uuid4()))
         self.name = profile_config.get(constants.CONFIG_NAME, "")
         self.description = profile_config.get(constants.CONFIG_DESCRIPTION, "")
+        self.required_trading_tentacles = profile_config.get(constants.CONFIG_REQUIRED_TRADING_TENTACLES, [])
         self.avatar = profile_config.get(constants.CONFIG_AVATAR, "")
         self.origin_url = profile_config.get(constants.CONFIG_ORIGIN_URL, None)
         self.read_only = profile_config.get(constants.CONFIG_READ_ONLY, False)
@@ -248,6 +250,7 @@ class Profile:
                 constants.CONFIG_ID: self.profile_id,
                 constants.CONFIG_NAME: self.name,
                 constants.CONFIG_DESCRIPTION: self.description,
+                constants.CONFIG_REQUIRED_TRADING_TENTACLES: self.required_trading_tentacles,
                 constants.CONFIG_AVATAR: self.avatar,
                 constants.CONFIG_ORIGIN_URL: self.origin_url,
                 constants.CONFIG_READ_ONLY: self.read_only,
