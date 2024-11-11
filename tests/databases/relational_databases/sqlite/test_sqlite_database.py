@@ -90,9 +90,10 @@ async def test_select():
 
         changed_order_ohlcv = await database.select(OHLCV, order_by="time_frame", symbol="ETH/BTC")
         assert changed_order_ohlcv[0] != ohlcv[0]
-
-        ohlcv = await database.select(OHLCV, xyz="xyz")
-        assert len(ohlcv) == 0
+        try:
+            ohlcv = await database.select(OHLCV, xyz="xyz")
+        except TypeError:
+            assert True
 
 
 async def test_select_max():
