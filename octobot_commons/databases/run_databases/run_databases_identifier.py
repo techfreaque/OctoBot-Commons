@@ -57,7 +57,8 @@ class RunDatabasesIdentifier:
 
     async def initialize(self, exchange=None):
         """
-        Initializes the necessary elements for these run databases. Creates necessary folder on file system databases
+        Initializes the necessary elements for these run databases.
+        Creates necessary folder on file system databases
         :param exchange: name of the associated exchange
         Used for live trading cross trading mode stats (such as profitability)
         """
@@ -187,7 +188,8 @@ class RunDatabasesIdentifier:
 
     async def get_single_existing_exchange(self) -> str:
         """
-        :return: the name of the only exchange the backtesting happened on if it only ran on a single exchange,
+        :return: the name of the only exchange the
+                backtesting happened on if it only ran on a single exchange,
         None otherwise
         """
         ignored_folders = [enums.RunDatabases.LIVE.value]
@@ -231,6 +233,19 @@ class RunDatabasesIdentifier:
             self.get_db_full_name(enums.RunDatabases.OPTIMIZER_RUNS_SCHEDULE_DB.value),
         )
 
+    def get_optimizer_runs_schedule_config_identifier(self) -> str:
+        """
+        :return: the identifier associated to the optimizer run schedule config database
+        """
+        return self._merge_parts(
+            self.base_path,
+            self.optimization_campaign_name,
+            enums.RunDatabases.OPTIMIZER.value,
+            self.get_db_full_name(
+                enums.RunDatabases.OPTIMIZER_RUNS_SCHEDULE_CONFIG_DB.value
+            ),
+        )
+
     async def generate_new_backtesting_id(self) -> int:
         """
         :return: a new unique backtesting id
@@ -254,7 +269,7 @@ class RunDatabasesIdentifier:
         :return: True if the given identifier is related to a symbol database
         """
         return database_identifier.endswith(self.suffix) and all(
-            not other_identifier.value in database_identifier
+            other_identifier.value not in database_identifier
             for other_identifier in enums.RunDatabases
         )
 
@@ -299,7 +314,8 @@ class RunDatabasesIdentifier:
             if not await self.database_adaptor.identifier_exists(name_candidate, False):
                 return index
         raise RuntimeError(
-            f"Reached maximum number of {'optimizer' if is_optimizer else 'backtesting'} runs "
+            "Reached maximum number of "
+            f"{'optimizer' if is_optimizer else 'backtesting'} runs "
             f"({constants.MAX_BACKTESTING_RUNS}). Please remove some."
         )
 
@@ -365,7 +381,8 @@ class RunDatabasesIdentifier:
 
     def _get_base_path(self, from_global_history, backtesting_id, optimizer_id):
         if from_global_history and (backtesting_id is None and optimizer_id is None):
-            # in live global history, use self.data_path as it's not related to a trading mode
+            # in live global history, use self.data_path
+            # as it's not related to a trading mode
             return self.data_path
         return self.base_path
 
@@ -387,7 +404,8 @@ class RunDatabasesIdentifier:
         if backtesting_id is not None or optimizer_id is not None:
             if self.optimization_campaign_name is None:
                 raise RuntimeError(
-                    f"optimization_campaign_name is required in {RunDatabasesIdentifier} "
+                    f"optimization_campaign_name is required in "
+                    f"{RunDatabasesIdentifier} "
                     f"constructor while in a backtesting or optimizer context"
                 )
             path = self._merge_parts(path, self.optimization_campaign_name)

@@ -350,6 +350,7 @@ class RunDatabases(enum.Enum):
     BACKTESTING = "backtesting"
     OPTIMIZER = "optimizer"
     OPTIMIZER_RUNS_SCHEDULE_DB = "runs_schedule"
+    OPTIMIZER_RUNS_SCHEDULE_CONFIG_DB = "runs_schedule_config"
     RUN_DATA_DB = "run_data"
     PORTFOLIO_VALUE_DB = "portfolio_value"
     HISTORICAL_PORTFOLIO_VALUE = "historical_portfolio_value"
