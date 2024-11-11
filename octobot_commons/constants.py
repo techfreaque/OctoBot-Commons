@@ -207,7 +207,7 @@ DEFAULT_IGNORED_VALUE = -1
 UNPROVIDED_CACHE_IDENTIFIER = "_unprovided"
 
 # Async settings
-DEFAULT_FUTURE_TIMEOUT = 120
+DEFAULT_FUTURE_TIMEOUT = 600
 
 # Github urls
 GITHUB_RAW_CONTENT_URL = "https://raw.githubusercontent.com"
