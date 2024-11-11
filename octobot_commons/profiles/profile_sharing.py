@@ -318,7 +318,7 @@ def _get_target_import_path(
     :return: (the final target import path, True if the profile is replaced)
     """
     target_import_path = os.path.join(
-        bot_install_path, constants.USER_PROFILES_FOLDER, profile_name
+        bot_install_path, constants.USER_PROFILES_FOLDER, profile_name.replace(" ", "_")
     )
     if replace_if_exists:
         return target_import_path
