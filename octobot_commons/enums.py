@@ -214,6 +214,9 @@ class PlotAttributes(enum.Enum):
     SIZE = "size"
     SHAPE = "shape"
     SYMBOL = "symbol"
+    VALUES = "values"
+    LABELS = "labels"
+    HOLE_SIZE = "hole"
 
 
 class BacktestingMetadata(enum.Enum):
@@ -269,6 +272,7 @@ class DBRows(enum.Enum):
 class PlotCharts(enum.Enum):
     MAIN_CHART = "main-chart"
     SUB_CHART = "sub-chart"
+    PIE_CHART = "pie-chart"
 
 
 class DisplayedElementTypes(enum.Enum):
