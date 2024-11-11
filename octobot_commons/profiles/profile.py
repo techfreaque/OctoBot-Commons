@@ -65,6 +65,7 @@ class Profile:
         self.name: str = None
         self.slug: str = None
         self.description: str = None
+        self.required_trading_tentacles: list = []
         self.avatar: str = None
         self.avatar_path: str = None
         self.origin_url: str = None
@@ -95,6 +96,7 @@ class Profile:
         self.name = profile_config.get(constants.CONFIG_NAME, "")
         self.slug = profile_config.get(constants.CONFIG_SLUG, "")
         self.description = profile_config.get(constants.CONFIG_DESCRIPTION, "")
+        self.required_trading_tentacles = profile_config.get(constants.CONFIG_REQUIRED_TRADING_TENTACLES, [])
         self.avatar = profile_config.get(constants.CONFIG_AVATAR, "")
         self.origin_url = profile_config.get(constants.CONFIG_ORIGIN_URL, None)
         self.auto_update = profile_config.get(constants.CONFIG_AUTO_UPDATE, False)
@@ -254,6 +256,7 @@ class Profile:
                 constants.CONFIG_NAME: self.name,
                 constants.CONFIG_SLUG: self.slug,
                 constants.CONFIG_DESCRIPTION: self.description,
+                constants.CONFIG_REQUIRED_TRADING_TENTACLES: self.required_trading_tentacles,
                 constants.CONFIG_AVATAR: self.avatar,
                 constants.CONFIG_ORIGIN_URL: self.origin_url,
                 constants.CONFIG_AUTO_UPDATE: self.auto_update,

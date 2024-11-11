@@ -173,6 +173,7 @@ def test_as_dict(profile):
             constants.CONFIG_RISK: enums.ProfileRisk.MODERATE.value,
             constants.CONFIG_TYPE: enums.ProfileType.LIVE.value,
             constants.CONFIG_EXTRA_BACKTESTING_TIME_FRAMES: [],
+            constants.CONFIG_REQUIRED_TRADING_TENTACLES: [],
         },
         constants.PROFILE_CONFIG: {},
     }
@@ -200,6 +201,7 @@ def test_as_dict(profile):
             constants.CONFIG_COMPLEXITY: enums.ProfileComplexity.DIFFICULT.value,
             constants.CONFIG_RISK: enums.ProfileRisk.LOW.value,
             constants.CONFIG_TYPE: enums.ProfileType.BACKTESTING.value,
+            constants.CONFIG_REQUIRED_TRADING_TENTACLES: [],
             constants.CONFIG_EXTRA_BACKTESTING_TIME_FRAMES: [enums.TimeFrames.ONE_DAY.value],
         },
         constants.PROFILE_CONFIG: {
